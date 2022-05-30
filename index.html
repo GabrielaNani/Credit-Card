@@ -6,56 +6,101 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <div class="container">
-    <div class="card">
-        <div class="full-card">
+    <section class="card">
+        <div class="front">
+            <div class="info">
+                <div id="number">
+                    <p class="label">Card Number</p>
+                    <p class="number">#### #### #### ####</p>
+                </div>
+                <div class="flexbox">
+                    <div id="name">
+                        <p class="label">Card Name</p>
+                        <p class="name">Name LastName</p>
+                    </div>
+                    <div id="expires">
+                        <p class="label">Expires</p>
+                        <p class="expires"><span class="month">MM</span> / <span class="year">YY</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <p class="numbers">
-                #### #### #### ####
-            </p>
-            <h5 class="card-holder">
-                Card Holder
-            </h5>
-            <p class="names">
-               AD SOYAD
-            </p>
-            <p class="expires">
-               MM/YY
-            </p>
+        <div class="back">
+            <div class="info">
+                <div id="ccv">
+                    <p class="label">CCV</p>
+                    <p class="ccv"></p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="info">
-<div class="inputs">
-    <h4>Add card numbers</h4>
-    <label for="numbers"></label>
-    <input type="text" name="numbers" id="numbers" placeholder="Add Card Numbers">
-</div>
-        <div class="second-input">
-            <h4>Add card name</h4>
-            <label for="name"></label>
-            <input type="text" name="name" id="name" placeholder="Add Card Name">
+    </section>
+    <form action="" class="card-inputs">
+        <div class="set">
+            <label for="numberInput">Card Number</label>
+            <input type="text" id="numberInput" maxlength="19" autocomplete="off">
         </div>
-        <div class="date">
-        <div class="month">
-            <h4>Add expiration date</h4>
-            <label for="month">Month:</label>
-            <select name="date" id="month">Month:</select>
+        <div class="set">
+            <label for="nameInput">Card Name</label>
+            <input type="text" id="nameInput" maxlength="19" autocomplete="off">
         </div>
-        <div class="year">
-            <label for="year">Year:</label>
-            <select name="year" id="year"></select>
-        </div>
-        <div class="cvc">
-            <label for="cvc"></label>
-            <input type="text" name="name" id="cvc" placeholder="Add CvC">
-        </div>
+        <div class="flexbox">
+            <div class="expire">
+                <div class="month">
+                    <h4>Add expiration date</h4>
+                    <label for="month">Month:</label>
+                    <select name="date" id="month">Month:</select>
+                </div>
+                <div class="year">
+                    <label for="year">Year:</label>
+                    <select name="year" id="year"></select>
+                </div>
+            </div>
+            <div class="set">
+                <label for="inputCCV">CCV</label>
+                <input type="text" id="inputCCV" maxlength="3">
+            </div>
         </div>
         <input type="submit">
-
-    </div>
+    </form>
 </div>
 
+<style>
+
+    .card {
+        width: 100%;
+        max-width: 550px;
+        position: relative;
+        color: #fff;
+        transition: .3s ease all;
+        transform: rotateY(0deg);
+        transform-style: preserve-3d;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .card.active {
+        transform: rotateY(180deg);
+    }
+    .card .front {
+        width: 100%;
+        background: url("https://i.ytimg.com/vi/xM0VQN6ezuo/maxresdefault.jpg");
+        background-size: cover;
+    }
+
+    .back {
+        background: url("https://i.ytimg.com/vi/xM0VQN6ezuo/maxresdefault.jpg");
+        background-size: cover;
+        width:551px;
+        height: 188px;
+        position: absolute;
+        top: 0;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+    }
+
+</style>
 <script src="script.js">
 </script>
 </body>
